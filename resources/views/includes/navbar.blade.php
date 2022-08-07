@@ -1,5 +1,7 @@
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+
 </head>
 
 <nav class="navbar navbar-expand-lg bg-light">
@@ -18,7 +20,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Users
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu " data-dropdown-in="fadeIn" data-dropdown-out="fadeOut" aria-labelledby="navbarDropdownMenuLink">
             
             <li><a class="dropdown-item" class="list-group-item" href="{{route('users.index')}}">List</a></li>
             <li><a class="dropdown-item" class="list-group-item" href="{{route('users.create')}}">New user</a></li>

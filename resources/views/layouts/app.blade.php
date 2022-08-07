@@ -1,5 +1,5 @@
 <html>
-    <head> App - @yield('title')
+    <head><title> App - @yield('title')</title>
     </head>
     <body>
         
