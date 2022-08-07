@@ -15,7 +15,7 @@
     <tr>
        
         <td>{{$user['id']}}</td>
-        <td>{{$user['name']}}<t/td>
+        <td><a href="{{route('users.show',['id'=>$user['id']])}}">{{$user['name']}}</a><t/td>
         <td>{{$user['email']}}</td>
         <td>
           <a href="{{route('users.edit',['id'=>$user['id']])}}">  <button name="edit" style="background-color:blue ;color:white"  >Edit</button></a>
@@ -24,10 +24,12 @@
             @csrf
            <button name="delete" style="background-color:red; color:white">delete</button></form>
         </td>
+        
 </tr>
 @endforeach
 </tr>
 </tbody>
     </table>
+    
     @endsection
 

@@ -7,6 +7,7 @@
 <form action="{{route('users.store')}}" method="post">
     @csrf
 <label>Name :</label>
+
 <input type="text" class="form-control" name="name" ><br><br>
 
 <label>Email :</label>

@@ -47,7 +47,9 @@ true);
      */
     public function show($id)
     { 
-        return view('users.show')-> with(['id'=>$id]);
+        $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')),true);
+        $users =$users[$id-1];
+        return view('users.show')-> with(['users'=>$users ,'id'=>$id]);
     }
 
     /**

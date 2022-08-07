@@ -1,6 +1,9 @@
-<div class="mb-3">
-<label>Name :</label>
-<input type="text" class="form-control" name="name" value="{{$users['name']}}"><br><br>
+@extends('layouts.app')
+@section('title', 'Show')
+@section('content')
+<p>Name :</p>
+<p>"{{$users['name']}}"><p><br><br>
 
-<label>Email :</label>
-<input type="email" class="form-control" name="email" value="{{$users['email']}}"><br><br>
+<p>Email :</p>
+<p>"{{$users['email']}}"><p><br><br>
+@endsection
