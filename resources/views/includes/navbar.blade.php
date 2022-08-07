@@ -20,8 +20,8 @@
           </a>
           <ul class="dropdown-menu">
             
-            <li><a class="dropdown-item" href="{{route('users.index')}}">List</a></li>
-            <li><a class="dropdown-item" href="{{route('users.create')}}">New user</a></li>
+            <li><a class="dropdown-item" class="list-group-item" href="{{route('users.index')}}">List</a></li>
+            <li><a class="dropdown-item" class="list-group-item" href="{{route('users.create')}}">New user</a></li>
             <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
