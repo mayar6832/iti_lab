@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,9 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')),
-true);
-        return view('users.index',["users"=>$users]);
+        // $user = User::create(['name'=>'Dr. Harold Moen','email'=>'ellie.arvey@example.net','password'=>1234567]);
+        // dd($user);
+      $users= User::all()  ;
+         return view('users.index')->with(['users'=> $users=User::paginate(9)]);
     }
 
     /**
@@ -36,7 +38,11 @@ true);
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $added=$request->only('name','email','password');
+        
+        User::create(
+            ['name' => $added['name'] , 'email' => $added['email'] ,'password'=>$added['password']]);
+            return  redirect(route('users.index'));
     }
 
     /**
@@ -47,9 +53,8 @@ true);
      */
     public function show($id)
     { 
-        $users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')),true);
-        $users =$users[$id-1];
-        return view('users.show')-> with(['users'=>$users ,'id'=>$id]);
+        $user= User::find($id) ;
+        return view('users.show')-> with(['user'=>$user]);
     }
 
     /**
@@ -60,9 +65,10 @@ true);
      */
     public function edit($id)
 
-    {$users = json_decode(\Illuminate\Support\Facades\File::get(storage_path('users.json')),true);
-        $users =$users[$id-1];
-        return view('users.edit')-> with(['users'=>$users ,'id'=>$id]);
+    {$user= User::find($id) ;
+        // $users =$users[$id];
+
+        return view('users.edit')-> with(['user'=>$user ]);
     }
 
     /**
@@ -73,8 +79,11 @@ true);
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {  dd($request->all());
-      
+    {    $added=$request->only('name','email');
+        
+        User::where('id',$id)->update(
+            ['name' => $added['name'] , 'email' => $added['email'] ]);
+            return  redirect(route('users.index'));
     }
 
     /**
@@ -85,7 +94,11 @@ true);
      */
     public function destroy($id)
     {
-        return "Remove the specified resource with id $id
-        from storage.";
+        $user= User::find($id) ;
+        
+        User::where('id',$id)->delete();
+        return  redirect(route('users.index'));
+        // return "Remove the specified resource with id $id
+        // from storage.";
     }
 }

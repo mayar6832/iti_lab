@@ -7,6 +7,7 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            
             <th scope="col">Actions</th>
 </tr>
 </thead>
@@ -16,8 +17,10 @@
        
         <td>{{$user['id']}}</td>
         <td><a href="{{route('users.show',['id'=>$user['id']])}}">{{$user['name']}}</a><t/td>
+        
         <td>{{$user['email']}}</td>
         <td>
+
           <a href="{{route('users.edit',['id'=>$user['id']])}}">  <button name="edit" style="background-color:blue ;color:white"  >Edit</button></a>
            <form method="post" action="{{route('users.destroy',['id'=>$user['id']])}}">
             @method('DELETE')

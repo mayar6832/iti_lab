@@ -12,6 +12,8 @@
 
 <label>Email :</label>
 <input type="email" class="form-control" name="email" ><br><br>
+<label>Password :</label>
+<input type="password" class="form-control" name="password" ><br><br>
 
 <input type="submit"  name ="submit">
 </form>

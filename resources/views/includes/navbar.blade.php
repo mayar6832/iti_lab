@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{route('users.index')}}">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
        
         <li class="nav-item dropdown">
@@ -25,9 +25,23 @@
             <li><a class="dropdown-item" class="list-group-item" href="{{route('users.index')}}">List</a></li>
             <li><a class="dropdown-item" class="list-group-item" href="{{route('users.create')}}">New user</a></li>
             <li><hr class="dropdown-divider"></li>
+        
+         
           </ul>
         </li>
-      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Posts
+          </a>
+          <ul class="dropdown-menu " data-dropdown-in="fadeIn" data-dropdown-out="fadeOut" aria-labelledby="navbarDropdownMenuLink">
+            
+            <li><a class="dropdown-item" class="list-group-item" href="{{route('posts.index')}}">List Post</a></li>
+            <li><a class="dropdown-item" class="list-group-item" href="{{route('posts.create')}}">New Post</a></li>
+            <li><hr class="dropdown-divider"></li>
+        
+         
+          </ul>
+        </li>
   
     </div>
   </div>
