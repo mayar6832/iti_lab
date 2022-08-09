@@ -23,7 +23,7 @@ Route::get('/posts/show/{id}', [PostController::class,'show'])->where('id','[0-9
 Route::post('/posts/store', [PostController::class,'store'])-> name('posts.store');
 Route::put('/posts/{id}', [PostController::class,'update'])-> name('posts.update');
 Route::delete('/posts/{id}', [PostController::class,'destroy'])-> name('posts.destroy');
-Route::post('/posts/delete', [PostController::class,'delete'])-> name('posts.delete');
+Route::post('/posts/restoreAll', [PostController::class,'restoreAll'])-> name('posts.restoreAll');
 Route:: fallback(function(){
     return view('welcome');
 });

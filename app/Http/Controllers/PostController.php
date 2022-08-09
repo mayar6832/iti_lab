@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index()
     {
         $posts= Post::all()  ;
-        return view('posts.index')->with(['posts'=> $posts=Post::paginate(3)]);
+        return view('posts.index')->with(['posts'=> $posts=Post::paginate(9)]);
     }
 
     
@@ -68,10 +68,10 @@ class PostController extends Controller
             
       
     }
-    public function delete(){
-        $dds= Post::withTrashed()->restore();
-        // dd($dds);
-         return view('posts.delete')->with(['dds'=> $dds=Post::paginate(9)]);
+    public function restoreAll()
+    {
+        Post::onlyTrashed()->restore();
+         return view('posts.drestoreAll');
     }
    
 }
